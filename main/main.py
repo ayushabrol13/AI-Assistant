@@ -1,28 +1,25 @@
-import os
-import googletrans
-import speech_recognition as sr
-import pyttsx3
-import pywhatkit
-import datetime
-import wikipedia as wk
-import pyjokes
+import os  # pip install os
+import googletrans  # pip install googletrans
+import speech_recognition as sr  # pip install SpeechRecognition
+import pyttsx3  # pip install pyttsx3
+import pywhatkit  # pip install pywhatkit
+import datetime  # pip install datetime
+import wikipedia as wk  # pip install
+import pyjokes  # pip install pyjokes
 from googletrans import Translator
-import weather
+import weather  # pip install weather
 
 listener = sr.Recognizer()
 engine = pyttsx3.init()
 start = True
 
 
-def change_voice(n):
-
+def change_voice(n):        # Engine Speech Voice Alteration
     voices = engine.getProperty('voices')
     engine.setProperty('voice', voices[n].id)
 
-# Engine Speech Function Definition
 
-
-def talk(text):
+def talk(text):             # Engine Speech Function Definition
     trans = Translator()
     detected = trans.detect(text)
     lang_code = detected.lang
@@ -32,7 +29,7 @@ def talk(text):
     engine.runAndWait()
 
 
-def greet():
+def greet():            # Defining the greet command
     x = datetime.datetime.now()
     hour = x.strftime("%H")
     hour = int(hour)
@@ -50,7 +47,7 @@ def greet():
         talk('Good Evening...Sir')
 
 
-def take_command():
+def take_command():             # Taking user's command via Speech
 
     with sr.Microphone() as source:
         print("Listening...")
@@ -61,7 +58,7 @@ def take_command():
             command = command.replace('jarvis', '')
 
             print(command)
-        except:
+        except:             # Raising exception when engine does not hear anything specifically.
             command = "none"
 
     return command
