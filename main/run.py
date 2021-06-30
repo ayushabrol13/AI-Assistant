@@ -1,5 +1,7 @@
 import main
 
+
+# Greeting the user
 main.greet()
 main.talk("Jarvis here..")
 main.talk("Nice to meet you.")
