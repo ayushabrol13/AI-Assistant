@@ -19,6 +19,8 @@ def change_voice(n):
     voices = engine.getProperty('voices')
     engine.setProperty('voice', voices[n].id)
 
+# Engine Speech Function Definition
+
 
 def talk(text):
     trans = Translator()
